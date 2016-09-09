@@ -1,0 +1,8 @@
+Run
+sudo python manage.py runserver
+
+API at 
+localhost:8000/company
+
+UI at 
+http://localhost:8000/#/company
