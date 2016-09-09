@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 from quickstart import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -25,8 +26,11 @@ router.register(r'groups', views.GroupViewSet)
 admin.autodiscover()
 
 urlpatterns = [
-    url(r'^', include(router.urls)),
+    #url(r'^', include(router.urls)),
+    url(r'^', include('dronegamaWeb.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^company/', include('company.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
+
+urlpatterns += staticfiles_urlpatterns()

@@ -5,7 +5,9 @@ from rest_framework.response import Response
 from company.models import Company
 from company.serializers import CompanySerializer
 
+from django.views.decorators.csrf import ensure_csrf_cookie
 
+@ensure_csrf_cookie
 @api_view(['GET', 'POST'])
 def company_list(request):
     """

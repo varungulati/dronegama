@@ -97,3 +97,11 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+
+
+node_modules
+dist
+.tmp
+.sass-cache
+app/bower_components
