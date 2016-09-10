@@ -5,9 +5,6 @@ from rest_framework.response import Response
 from company.models import Company
 from company.serializers import CompanySerializer
 
-from django.views.decorators.csrf import ensure_csrf_cookie
-
-@ensure_csrf_cookie
 @api_view(['GET', 'POST'])
 def company_list(request):
     """
@@ -26,3 +23,10 @@ def company_list(request):
         else:
             return Response(
                 serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['GET', 'POST'])
+def getCompanyByFaaId(request, faaId):
+    company = Company.objects.get(faa_id=faaId)
+    serializer = CompanySerializer(company, many=False);
+    return Response(serializer.data)
