@@ -10,10 +10,12 @@
 angular.module('dronegamaWebApp')
   .service('company', function ($resource) {
     // AngularJS will instantiate a singleton by calling "new" on this function
-      return $resource('/company/:faaId', {faaId: '@_faaId' }, {
+      return $resource('/company/:faaId/', {faaId: '@_faaId' }, {
         update: {
           method: 'PUT' // this method issues a PUT request
         }
+      }, {
+        stripTrailingSlashes: false
       })
   })
   .service('tabInfo', function(){

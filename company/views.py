@@ -16,7 +16,7 @@ def company_list(request):
         return Response(serializer.data)
 
     elif request.method == 'POST':
-        serializer = CompanySerializer(data=request.DATA)
+        serializer = CompanySerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -25,7 +25,7 @@ def company_list(request):
                 serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 def getCompanyByFaaId(request, faaId):
     company = Company.objects.get(faa_id=faaId)
     serializer = CompanySerializer(company, many=False);

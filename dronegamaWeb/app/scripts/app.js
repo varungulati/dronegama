@@ -18,7 +18,8 @@ angular
     'ngRoute',
     'ngSanitize'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $resourceProvider) {
+    $resourceProvider.defaults.stripTrailingSlashes = false;
     $routeProvider
       .when('/', {
         templateUrl: 'static/views/main.html',
@@ -39,6 +40,11 @@ angular
         templateUrl: 'static/views/viewcompany.html',
         controller: 'ViewcompanyCtrl',
         controllerAs: 'viewCompany'
+      })
+      .when('/newCompany', {
+        templateUrl: 'static/views/newcompany.html',
+        controller: 'NewcompanyCtrl',
+        controllerAs: 'newCompany'
       })
       .otherwise({
         redirectTo: '/'
