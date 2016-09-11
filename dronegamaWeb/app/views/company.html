@@ -1,1 +1,22 @@
-<p>This is the company view.</p>
+<div>
+  <h3>Company List</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Introduction</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="company in companies">
+        <td>{{company.company_name}}</td>
+        <td>{{company.address}}</td>
+        <td>{{company.phone}}</td>
+        <td>{{company.introduction}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

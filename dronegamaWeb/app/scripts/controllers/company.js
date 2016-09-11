@@ -8,10 +8,13 @@
  * Controller of the dronegamaWebApp
  */
 angular.module('dronegamaWebApp')
-  .controller('CompanyCtrl', function () {
+  .controller('CompanyCtrl', function ($scope, company) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
-      'Karma'
+      'Karma',
     ];
+
+    $scope.name = "test";
+    $scope.companies = company.query();
   });
