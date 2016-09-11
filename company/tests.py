@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.test import RequestFactory
 from company.models import Company
-from company.views import getCompanyByFaaId
+from company.views import *
 from rest_framework.test import APITestCase
 from rest_framework.test import APIClient
 from django.contrib.auth.models import User
@@ -31,3 +31,11 @@ class CompanyRestTets(APITestCase):
     reques = factory.get('/company/11234')
     res = getCompanyByFaaId(reques, "11234")
     self.assertEqual(res.status_code, 200)
+
+  def test_newCompany(self):
+    comp = {"company_name": "testPOST", "address": "test address", "phone": "1231231231", "primary_contact": "new person", "faa_id": "123123", "introduction": "Some Meaningfulintroduction"}
+    factory = APIRequestFactory()
+    req = factory.post('/company', comp)
+    res = company_list(req)
+    self.assertEqual(res.status_code, 201)
+    self.assertEquals(Company.objects.get(faa_id=comp.get("faa_id")).faa_id, comp.get("faa_id"))
