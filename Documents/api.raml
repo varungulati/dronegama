@@ -1,0 +1,38 @@
+#%RAML 0.8
+title: Dronegama
+version: 1
+/company:
+  get:
+    description: The GET operation fetches all the companies in the database
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [
+                {"company_name": "testPOST", "address": "test address", "phone": "1231231231", "primary_contact": "new person", "faa_id": "123123", "introduction": "Some Meaningfulintroduction"}
+              ]
+  post:
+    description: |
+      POST a Company object to save into database
+    body:
+      application/json:
+        example: |
+          {"company_name": "testPOST", "address": "test address", "phone": "1231231231", "primary_contact": "new person", "faa_id": "123123", "introduction": "Some Meaningfulintroduction"}
+    responses:
+      201:
+        body:
+          application/json:
+            example: |
+              {"company_name": "testPOST", "address": "test address", "phone": "1231231231", "primary_contact": "new person", "faa_id": "123123", "introduction": "Some Meaningfulintroduction"}
+
+  /{faaId}:
+    get:
+      description: GET company by Faa ID
+      responses:
+       200:
+        body:
+          application/json:
+            example: |
+              {"company_name": "testPOST", "address": "test address", "phone": "1231231231", "primary_contact": "new person", "faa_id": "123123", "introduction": "Some Meaningfulintroduction"}
+
