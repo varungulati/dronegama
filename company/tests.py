@@ -39,3 +39,11 @@ class CompanyRestTets(APITestCase):
     res = company_list(req)
     self.assertEqual(res.status_code, 201)
     self.assertEquals(Company.objects.get(faa_id=comp.get("faa_id")).faa_id, comp.get("faa_id"))
+
+  def test_getCompanyById(self):
+    factory = APIRequestFactory()
+    self.assertEquals(Company.objects.get(faa_id="11234").faa_id, "11234")
+    reques = factory.delete('/company/11234')
+    res = getCompanyByFaaId(reques, "11234")
+    self.assertEqual(res.status_code, 204)
+

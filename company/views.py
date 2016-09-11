@@ -25,8 +25,13 @@ def company_list(request):
                 serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@api_view(['GET'])
+@api_view(['GET', 'DELETE'])
 def getCompanyByFaaId(request, faaId):
-    company = Company.objects.get(faa_id=faaId)
-    serializer = CompanySerializer(company, many=False);
-    return Response(serializer.data)
+    if request.method == 'GET':
+        company = Company.objects.get(faa_id=faaId)
+        serializer = CompanySerializer(company, many=False);
+        return Response(serializer.data)
+    elif request.method == 'DELETE':
+        Company.objects.filter(faa_id=faaId).delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+

@@ -27,7 +27,6 @@ router = routers.DefaultRouter()
 admin.autodiscover()
 
 urlpatterns = [
-    #url(r'^', include(router.urls)),
     url(r'^', include('dronegamaWeb.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^company/', include('company.urls')),
