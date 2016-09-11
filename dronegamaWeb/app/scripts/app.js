@@ -30,6 +30,11 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/company', {
+        templateUrl: 'static/views/company.html',
+        controller: 'CompanyCtrl',
+        controllerAs: 'company'
+      })
       .otherwise({
         redirectTo: '/'
       });
