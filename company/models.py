@@ -13,5 +13,5 @@ class Company(models.Model):
     introduction = models.TextField(db_column='INTRODUCTION', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = False
+        managed = True
         db_table = 'COMPANY'
