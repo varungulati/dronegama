@@ -35,6 +35,11 @@ angular
         controller: 'CompanyCtrl',
         controllerAs: 'company'
       })
+      .when('/company/:faaId', {
+        templateUrl: 'static/views/viewcompany.html',
+        controller: 'ViewcompanyCtrl',
+        controllerAs: 'viewCompany'
+      })
       .otherwise({
         redirectTo: '/'
       });

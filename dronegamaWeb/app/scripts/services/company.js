@@ -15,4 +15,9 @@ angular.module('dronegamaWebApp')
           method: 'PUT' // this method issues a PUT request
         }
       })
+  })
+  .service('tabInfo', function(){
+    var tabInfo = {};
+    tabInfo.tab = "home";
+    return tabInfo;
   });
