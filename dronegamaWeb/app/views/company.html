@@ -10,8 +10,14 @@
       </tr>
     </thead>
     <tbody>
+        <tr>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+        </tr>
       <tr ng-repeat="company in companies">
-        <td>{{company.company_name}}</td>
+        <td><a href="/#/company/{{company.faa_id}}">{{company.company_name}}</a></td>
         <td>{{company.address}}</td>
         <td>{{company.phone}}</td>
         <td>{{company.introduction}}</td>
