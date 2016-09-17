@@ -105,4 +105,5 @@ dist
 .tmp
 .sass-cache
 dronegamaWeb/bower_components/
-.idea/
+.idea/*
+venv

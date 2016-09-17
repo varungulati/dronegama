@@ -1,0 +1,7 @@
+{
+  "name": "Drone Gama App",
+  "description": "The DroneGame App",
+  "repository": "https://github.com/heroku/python-getting-started",
+  "keywords": ["python", "django" ],
+  "addons": [ "heroku-postgresql" ]
+}
