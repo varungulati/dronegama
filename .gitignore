@@ -101,9 +101,7 @@ ENV/
 
 
 node_modules
-dist
 .tmp
 .sass-cache
-dronegamaWeb/bower_components/
 .idea/*
 venv
