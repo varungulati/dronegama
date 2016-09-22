@@ -2,7 +2,6 @@
 /dist
 /.tmp
 /.sass-cache
-/bower_components
 
 # Created by https://www.gitignore.io/api/python
 
@@ -104,4 +103,3 @@ node_modules
 .tmp
 .sass-cache
 .idea/*
-venv
