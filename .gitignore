@@ -98,3 +98,5 @@ node_modules
 .tmp
 .sass-cache
 .idea/*
+
+requirements.txt
