@@ -20,6 +20,6 @@ angular.module('dronegamaWebApp')
 
     $scope.company = new company();
     $scope.save = function(){
-       $scope.company.$save(function(){$location.path("/company/")})
-    }
+       $scope.company.$save(function(){$location.path("/company/");});
+    };
   });

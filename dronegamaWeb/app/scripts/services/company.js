@@ -16,7 +16,7 @@ angular.module('dronegamaWebApp')
         }
       }, {
         stripTrailingSlashes: false
-      })
+      });
   })
   .service('tabInfo', function(){
     var tabInfo = {};
