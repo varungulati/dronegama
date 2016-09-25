@@ -1,8 +1,16 @@
-Run
-sudo python manage.py runserver
+Run using
+./devenv/bin/python manage.py runserver --> Runs on PORT=8000
 
-API at 
-localhost:8000/company
+Or
+heroku local  --> Runs on PORT=500
 
-UI at 
-http://localhost:8000/#/company
+API at
+http://localhost:<PORT>/company/
+http://localhost:<PORT>/company/faaId=1/
+
+UI at
+http://localhost:<PORT>/#/
+
+Configure PyCharm
+1. Python interpreter should point to python2.7.12 in the virtual environment folder
+   File -> Settings -> Project:Dronegama -> Project interpreter -> 2.7.12 virtualenv /home/gulati/workspace/dronegama/devenv
