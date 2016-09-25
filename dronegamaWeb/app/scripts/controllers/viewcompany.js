@@ -20,6 +20,6 @@ angular.module('dronegamaWebApp')
     $scope.company = company.get({faaId: $scope.id});
 
     $scope.delete = function(){
-      company.delete({faaId: $scope.company.faa_id}, function(){$location.path("/company/")});
-    }
+      company.delete({faaId: $scope.company.faa_id}, function(){$location.path("/company/");});
+    };
   });

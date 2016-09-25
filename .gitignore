@@ -1,5 +1,4 @@
 /node_modules
-/dist
 /.tmp
 /.sass-cache
 
@@ -19,7 +18,6 @@ __pycache__/
 env/
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/

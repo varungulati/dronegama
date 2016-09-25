@@ -16,8 +16,5 @@
     "angular-mocks": "^1.4.0"
   },
   "appPath": "app",
-  "moduleName": "dronegamaWebApp",
-  "overrides": {
-
-  }
+  "moduleName": "dronegamaWebApp"
 }
