@@ -14,5 +14,3 @@ http://localhost:<PORT>/#/
 Configure PyCharm
 1. Python interpreter should point to python2.7.12 in the virtual environment folder
    File -> Settings -> Project:Dronegama -> Project interpreter -> 2.7.12 virtualenv /home/gulati/workspace/dronegama/devenv
-   
-Small change.
