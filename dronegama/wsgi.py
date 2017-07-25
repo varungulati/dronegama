@@ -13,4 +13,6 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dronegama.settings_dev")
 
+print("Using DJANGO_SETTINGS_MODULE", os.environ.get("DJANGO_SETTINGS_MODULE", None));
+
 application = get_wsgi_application()

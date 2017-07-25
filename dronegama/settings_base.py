@@ -23,9 +23,6 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'rq@dvysq6_vqbcy)(ovs$4%^8jx)g7n-ai7*=1znea+c=w9g#o'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = []
 
 # TODO: to enable authentication, uncomment the code in the following block
