@@ -1,4 +1,4 @@
-from settings_base import *
+from .settings_base import *
 
 DATABASES = {
     'default': {
@@ -12,4 +12,4 @@ DATABASES = {
 }
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
