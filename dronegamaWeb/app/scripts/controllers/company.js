@@ -9,12 +9,6 @@
  */
 angular.module('dronegamaWebApp')
   .controller('CompanyCtrl', function ($scope, company) {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma',
-    ];
-
     $scope.name = "test";
     $scope.companies = company.query();
   });
