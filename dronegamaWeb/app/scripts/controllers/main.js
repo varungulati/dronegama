@@ -8,10 +8,9 @@
  * Controller of the dronegamaWebApp
  */
 angular.module('dronegamaWebApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function (ticker, $scope) {
+	ticker.async().then(function(d) {
+		$scope.ticker = d;
+	  });
   });
+

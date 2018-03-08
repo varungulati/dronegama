@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^', include('dronegamaWeb.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^company/', include('company.urls')),
+    url(r'^ticker/', include('ticker.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
