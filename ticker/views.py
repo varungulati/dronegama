@@ -1,5 +1,5 @@
 import json
-import urllib.request
+import urllib
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -16,7 +16,7 @@ def ticker(request):
     """
     if request.method == 'GET':
         url = 'https://bittrex.com/api/v1.1/public/getmarketsummaries'
-        data = json.load(urllib.request.urlopen(url))
+        data = json.load(urllib.urlopen(url))
         Ticker.objects.update(latest_in = False)
         for values in data['result']:
             obj = Ticker(symbol = values['MarketName'], price = values['Last'])
