@@ -41,16 +41,16 @@ REST_FRAMEWORK = {
 # Application definition
 
 INSTALLED_APPS = [
+    'company',
+    'ticker',
+    'dronegamaWeb',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'company',
-    'ticker',
-    'dronegamaWeb'
+    'django.contrib.staticfiles'
 ]
 
 MIDDLEWARE = [

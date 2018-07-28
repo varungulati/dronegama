@@ -1,7 +1,7 @@
 from django.template import RequestContext
 from django.shortcuts import render_to_response, render, redirect
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 def index(request):
     # Request the context of the request.
@@ -35,3 +35,7 @@ def register(req):
     form = UserCreationForm()
   context = {'form': form}
   return render(req, 'registration/register.html', context)
+
+def logout_view(request):
+  logout(request)
+  # Redirect to a success page.

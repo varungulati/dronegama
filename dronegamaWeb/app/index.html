@@ -35,11 +35,6 @@
             </button>
 
             <a class="navbar-brand" href="#/">DRONEGAMA</a>
-              {% if user.is_authenticated %}
-                <p>Hello: {{ user.username }}</p>
-                {% else %}
-                <p>Not authenticated</p>
-              {% endif %}
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
@@ -49,7 +44,17 @@
               <li><a ng-href="#/about">Technologies</a></li>
 <!--               <li><a ng-href="#/company">Company</a></li> -->
             </ul>
+
+            <div style="float:right" class="nav navbar-nav">
+            {% if user.is_authenticated %}
+                <p style="display: inline-block;">Hello: {{ user.username }}</p> <a href="accounts/logout/">/ Logout</a>
+                {% else %}
+                <a href="/accounts/login/">login</a>/<a href="register/">SignUp</a>
+              {% endif %}
+            </div>
           </div>
+
+
         </div>
       </div>
     </div>
