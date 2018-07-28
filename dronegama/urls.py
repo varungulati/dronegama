@@ -31,7 +31,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^company/', include('company.urls')),
     url(r'^ticker/', include('ticker.urls')),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url('accounts/', include('django.contrib.auth.urls'))
 ]
 
 urlpatterns += staticfiles_urlpatterns()
