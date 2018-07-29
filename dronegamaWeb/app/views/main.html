@@ -1,18 +1,3 @@
 <div>
-<h5 class="text-info"> This website displays current prices for all curptocurrencies available on Binance exchange and saves in the PostGRE SQL database. Please refresh for latest prices.</h5>
-<p>Filter by symbol: <input type="text" ng-model="symbol"></p>
-<table class="table table-bordered table-striped">
- <thead>
-  <tr>
-   <th >SYMBOL</th>
-   <th >PRICE</th>
-  </tr>
- </thead>
-  <tbody>
-    <tr ng-repeat="e in ticker | filter:symbol">
-       <td>{{e.symbol}}</td>
-       <td>{{e.price}}</td>
-       </tr>
-  </tbody>
-</table>
+
 </div>
