@@ -3,6 +3,9 @@ from django.shortcuts import render_to_response, render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 
+from accounts.models import UserProfileModel
+
+
 def index(request):
     # Request the context of the request.
     # The context contains information such as the client's machine details, for example.
@@ -25,11 +28,12 @@ def register(req):
   if req.method == 'POST':
     form = UserCreationForm(req.POST)
     if form.is_valid():
-      form.save()
+      user_save = form.save()
       username = form.cleaned_data['username']
       password = form.cleaned_data['password1']
       user = authenticate(username=username, password=password)
       login(req, user)
+      UserProfileModel.objects.create(user=user_save)
       return redirect('index')
   else:
     form = UserCreationForm()

@@ -41,9 +41,10 @@ REST_FRAMEWORK = {
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'company',
-    'ticker',
     'dronegamaWeb',
+    'ticker',
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
