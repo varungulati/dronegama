@@ -1,6 +1,6 @@
 from django.template import RequestContext
 from django.shortcuts import render_to_response, render, redirect
-from django.contrib.auth.forms import UserCreationForm
+from forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 
 from accounts.models import UserProfileModel

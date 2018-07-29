@@ -34,8 +34,8 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">
-              <img src="static/images/dronegama.png" width="200" height="30"></img>
+            <a class="navbar-brand" href="/">
+              <img src="{% static "images/dronegama.png" %}" width="200" height="30"></img>
             </a>
           </div>
 
@@ -52,7 +52,7 @@
                 <a class="navbar-btn btn btn-danger" href="accounts/logout/">Logout</a>
                 {% else %}
                 <a class="navbar-btn btn btn-danger" href="/accounts/login/">Login</a>
-                <a class="navbar-btn btn btn-danger" href="register/">SignUp</a>
+                <a class="navbar-btn btn btn-danger" href="/accounts/register/">SignUp</a>
               {% endif %}
             </div>
           </div>
@@ -64,6 +64,8 @@
 
     <div class="container">
     <div ng-view=""></div>
+    {% block login %}{% endblock %}
+    {% block register %}{% endblock %}
     </div>
 
     <div class="footer">
