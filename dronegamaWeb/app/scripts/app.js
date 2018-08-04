@@ -46,6 +46,12 @@ angular
         controller: 'NewcompanyCtrl',
         controllerAs: 'newCompany'
       })
+      .when('/pilots', {
+        templateUrl: 'static/views/pilots.html',
+      })
+      .when('/packages', {
+        templateUrl: 'static/views/packages.html',
+      })
       .otherwise({
         redirectTo: '/'
       });

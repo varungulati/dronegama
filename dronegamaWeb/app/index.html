@@ -42,10 +42,10 @@
                <!-- Nav tabs -->
                <ul class="nav nav-tabs tabbable">
                   <li class="nav-item" ng-class="{active: main.activetab == 'pilots'}">
-                     <a class="nav-link" data-toggle="tab" href="#panel1" role="tab" ng-click='main.activetab = "pilots"' >Pilots</a>
+                     <a class="nav-link" data-toggle="tab" href="/#/pilots" role="tab" ng-click='main.activetab = "pilots"' >Pilots</a>
                   </li>
                   <li class="nav-item" ng-class="{active: main.activetab == 'packages'}">
-                     <a class="nav-link" data-toggle="tab" href="#panel2" role="tab" ng-click='main.activetab = "packages"'>Packages</a>
+                     <a class="nav-link" data-toggle="tab" href="/#/packages" role="tab" ng-click='main.activetab = "packages"'>Packages</a>
                   </li>
                   <div class="text-right">
                      {% if user.is_authenticated %}
@@ -58,16 +58,10 @@
                </ul>
                <!-- Tab panels -->
                <div class="tab-content card">
-                  <!--Panel 1-->
-                  <div ng-switch='main.activetab'>
-                     <div
-                        ng-switch-when='pilots'>
-                        <div   ng-include='"static/views/pilots.html"'></div>
-                     </div>
-                     <div
-                        ng-switch-when='pilots'>
-                        <div   ng-include='"static/views/packages.html"'></div>
-                     </div>
+               <div ng-view=""></div>
+    {% block login %}{% endblock %}
+    {% block register %}{% endblock %}
+    </div>
                   </div>
                </div>
             </div>
@@ -116,7 +110,6 @@
          angular.module('dronegamaWebApp')
            .controller('dronegamaIndexController', function ($scope) {
          		$scope.main = {};
-         		$scope.main.activetab = 'pilots';
            });
       </script>
    </body>
