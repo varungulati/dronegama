@@ -25,20 +25,13 @@
          <div class="navbar navbar-default" role="navigation">
             <div class="container">
                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-                  <span class="sr-only">Toggle navigation</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  </button>
                   <a class="navbar-brand" href="/">
                   <img src="{% static "images/dronegama.png" %}" width="200" height="30"></img>
                   </a>
                </div>
-               <div class="collapse navbar-collapse" id="js-navbar-collapse" style="float: left">
-                  <div class="collapse navbar-collapse" id="js-navbar-collapse">
+               <div style="float: left">
                      <!-- Nav tabs -->
-                     <ul class="nav nav-tabs tabbable">
+                     <ul class="nav tabbable navbar-nav">
                         <li class="nav-item" ng-class="{active: main.activetab == 'pilots'}">
                            <a class="nav-link" data-toggle="tab" href="/#/pilots" role="tab" ng-click='main.activetab = "pilots"'>Pilots</a>
                         </li>
@@ -46,24 +39,28 @@
                            <a class="nav-link" data-toggle="tab" href="/#/packages" role="tab" ng-click='main.activetab = "packages"'>Packages</a>
                         </li>
                      </ul>
-                  </div>
                </div>
                {% if user.is_authenticated %}
-               <div class=" text-right col-sm-4">
+                <div class="nav navbar-nav pull-right col-sm-4" style="float: left">
+                  <div>
+                     <!-- Nav tabs -->
                   <button class="btn btn-default dropdown-toggle dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                   {{ user.username }}
                   <span class="caret"></span>
                   </button>
+
                   <ul class="dropdown-menu" style="width: 100%;" aria-labelledby="dropdownMenu1">
                      <li><a class="text-right" href="#">Physicsa</a></li>
                      <li>
                         <a class="text-right" href="accounts/logout/">Logout</a>
                      </li>
                   </ul>
-               </div>
+                  </div>
+                </div>
+
                {% else %}
                <div>
-                  <ul class="nav nav-tabs tabbable">
+                  <ul class="nav tabbable navbar-nav pull-right">
                      <li class="nav-item pull-right">
                         <a href="/accounts/register/">SignUp</a>
                      </li>
@@ -74,8 +71,8 @@
                </div>
                {% endif %}
                <!-- Tab panels -->
-               <div class="tab-content card">
-                  <div ng-view="">
+               <div>
+
                   </div>
                   {% block login %}{% endblock %}
                   {% block register %}{% endblock %}
@@ -83,6 +80,7 @@
             </div>
          </div>
       </div>
+      <div class="container" ng-view="">
       <div class="footer">
          <div class="container">
             <p><span class="glyphicon glyphicon-heart"></span> from DroneGama</p>
