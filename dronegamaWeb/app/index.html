@@ -42,6 +42,9 @@
                      <li class="nav-item" ng-class="{active: main.activetab == 'packages'}">
                         <a class="nav-link" data-toggle="tab" href="/#/packages" data-target="#packages" role="tab" ng-click='main.activetab = "packages"'>Packages</a>
                      </li>
+                     <li class="nav-item" ng-class="{active: main.activetab == 'list_business'}">
+                        <a class="nav-link" data-toggle="tab" href="/#/list_business" data-target="#list_business" role="tab" ng-click='main.activetab = "list_business"'>List My Business</a>
+                     </li>
                   </ul>
                   {% comment %}Login/signup side of things start{% endcomment %}
                   {% if user.is_authenticated %}
@@ -108,11 +111,17 @@
       <script src="static/scripts/services/ticker.js"></script>
       <script src="static/scripts/controllers/viewcompany.js"></script>
       <script src="static/scripts/controllers/newcompany.js"></script>
+      <script src="static/scripts/controllers/listBusiness.js"></script>
       <!-- endbuild -->
       <script>
          angular.module('dronegamaWebApp')
            .controller('dronegamaIndexController', function ($scope) {
          		$scope.main = {};
+         		{% if user.is_authenticated %}
+         		$scope.main.isAuthenticated = true;
+         		{% else %}
+              $scope.main.isAuthenticated = false;
+         		{% endif %}
            });
       </script>
    </body>

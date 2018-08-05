@@ -52,6 +52,11 @@ angular
       .when('/packages', {
         templateUrl: 'static/views/packages.html',
       })
+      .when('/list_business', {
+        templateUrl: 'static/views/list_business.html',
+        controller: 'ListBusinessCtrl',
+        controllerAs: 'listBusiness'
+      })
       .otherwise({
         redirectTo: '/'
       });
