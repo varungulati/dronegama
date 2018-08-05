@@ -11,8 +11,7 @@ angular.module('dronegamaWebApp')
   .controller('MainCtrl', function (ticker, $scope) {
 	ticker.async().then(function(d) {
 		$scope.ticker = d;
-		$scope.main = {};
-		$scope.main.activetab = 'pilots';
+
 	  });
   });
 

@@ -1,0 +1,28 @@
+<div>
+  <h3>Company List</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Introduction</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+        </tr>
+      <tr ng-repeat="company in companies">
+        <td><a href="/#/company/{{company.faa_id}}">{{company.company_name}}</a></td>
+        <td>{{company.address}}</td>
+        <td>{{company.phone}}</td>
+        <td>{{company.introduction}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

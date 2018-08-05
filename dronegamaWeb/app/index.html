@@ -31,19 +31,22 @@
                   <span class="icon-bar"></span>
                   </button>
                   <a  href="/#/">
-                  <img style="margin-top: 10px" src="{% static "images/dronegama.png" %}" ng-click='main.activetab = "home"' width="200"></img>
+                  <img style="margin-top: 10px" src="{% static "images/dronegama.png" %}"  ng-click='main.activetab = "home"' width="200"></img>
                   </a>
                </div>
                <ul class="tabbable collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav col-sm-4">
                      <li ng-class="{active: main.activetab == 'pilots'}">
-                        <a class="nav-link" href="/#/pilots" data-target="#pilots" data-toggle="tab" role="tab" ng-click='main.activetab = "pilots"'>Pilots</a>
+                        <a class="nav-link" ui-sref="pilots" data-target="#pilots" data-toggle="tab" role="tab"
+                        ng-click='main.activetab = "pilots"'>Pilots</a>
                      </li>
                      <li class="nav-item" ng-class="{active: main.activetab == 'packages'}">
-                        <a class="nav-link" data-toggle="tab" href="/#/packages" data-target="#packages" role="tab" ng-click='main.activetab = "packages"'>Packages</a>
+                        <a class="nav-link" ui-sref="packages" data-toggle="tab" data-target="#packages" role="tab"
+                        ng-click='main.activetab = "packages"'>Packages</a>
                      </li>
                      <li class="nav-item" ng-class="{active: main.activetab == 'list_business'}">
-                        <a class="nav-link" data-toggle="tab" href="/#/list_business" data-target="#list_business" role="tab" ng-click='main.activetab = "list_business"'>List My Business</a>
+                        <a class="nav-link" ui-sref="list_business" data-toggle="tab" data-target="#list_business" role="tab"
+                        ng-click='main.activetab = "list_business"'>List My Business</a>
                      </li>
                   </ul>
                   {% comment %}Login/signup side of things start{% endcomment %}
@@ -82,7 +85,10 @@
           </div>
       </div>
 
-      <div ng-view=""></div>
+{% comment %}      <div ng-view=""></div>{% endcomment %}
+
+       <div ui-view></div>
+
       <div class="footer">
          <div class="container">
             <p><span class="glyphicon glyphicon-heart"></span> from DroneGama</p>
@@ -98,8 +104,8 @@
       <script src="static/bower_components/angular-cookies/angular-cookies.js"></script>
       <script src="static/bower_components/angular-messages/angular-messages.js"></script>
       <script src="static/bower_components/angular-resource/angular-resource.js"></script>
-      <script src="static/bower_components/angular-route/angular-route.js"></script>
       <script src="static/bower_components/angular-sanitize/angular-sanitize.js"></script>
+      <script src="static/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <!-- endbower -->
       <!-- endbuild -->
       <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -122,6 +128,7 @@
          		{% else %}
               $scope.main.isAuthenticated = false;
          		{% endif %}
+		          $scope.main.activetab = 'main';
            });
       </script>
    </body>

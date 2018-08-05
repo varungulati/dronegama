@@ -8,6 +8,28 @@
  * Controller of the dronegamaWebApp
  */
 angular.module('dronegamaWebApp')
+    .config(function ($stateProvider, $urlRouterProvider) {
+      $stateProvider
+
+      // route to show our basic form (/form)
+        .state('list_business.form', {
+          url: '/form',
+          templateUrl: 'static/views/form.html'
+        })
+
+        // nested states
+        // each of these sections will have their own view
+        // url will be nested (/form/profile)
+        .state('list_business.form.profile', {
+          url: '/profile',
+          templateUrl: 'static/views/form_profile.html'
+        })
+        .state('list_business.form.termsandconditions', {
+          url: '/termsandconditions',
+          templateUrl: 'static/views/form-profile.html'
+        })
+      ;
+    })
   .controller('ListBusinessCtrl', function ($timeout, $scope) {
     if(!$scope.main.isAuthenticated) {
       $('#notLoggedInModal').modal('show');
@@ -16,7 +38,7 @@ angular.module('dronegamaWebApp')
       $timeout(function() {
         $('#listBusinessModalStart').modal('hide');
         $('#listBusinessModalSteps').modal('show');
-      }, 3000);
+      }, 1000);
 
 
     }
