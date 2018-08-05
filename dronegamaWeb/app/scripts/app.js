@@ -56,3 +56,10 @@ angular
         redirectTo: '/'
       });
   });
+
+// Making the navbar collapse after clicking on any one option in mobile mode
+$(document).ready(function () {
+  $(".navbar-nav li a.nav-link").click(function(event) {
+    $(".navbar-collapse").collapse('hide');
+  });
+});

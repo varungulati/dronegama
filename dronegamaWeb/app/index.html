@@ -22,80 +22,69 @@
       <![endif]-->
       <!-- Add your site or application content here -->
       <div class="header">
-         <div class="navbar navbar-default" role="navigation">
+         <nav class="navbar navbar-default">
             <div class="container">
-               <div class="navbar-header">
-                  <a class="navbar-brand" href="/">
-                  <img src="{% static "images/dronegama.png" %}" width="200" height="30"></img>
+               <div class="navbar-header col-sm-4">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+                  <a  href="/#/">
+                  <img style="margin-top: 10px" src="{% static "images/dronegama.png" %}" ng-click='main.activetab = "home"' width="200"></img>
                   </a>
                </div>
-               <div style="float: left">
-                     <!-- Nav tabs -->
-                     <ul class="nav tabbable navbar-nav">
-                        <li class="nav-item" ng-class="{active: main.activetab == 'pilots'}">
-                           <a class="nav-link" data-toggle="tab" href="/#/pilots" role="tab" ng-click='main.activetab = "pilots"'>Pilots</a>
-                        </li>
-                        <li class="nav-item" ng-class="{active: main.activetab == 'packages'}">
-                           <a class="nav-link" data-toggle="tab" href="/#/packages" role="tab" ng-click='main.activetab = "packages"'>Packages</a>
-                        </li>
-                     </ul>
-               </div>
-               {% if user.is_authenticated %}
-                <div class="nav navbar-nav pull-right col-sm-4" style="float: left">
-                  <div>
-                     <!-- Nav tabs -->
-                  <button class="btn btn-default dropdown-toggle dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  {{ user.username }}
-                  <span class="caret"></span>
-                  </button>
-
-                  <ul class="dropdown-menu" style="width: 100%;" aria-labelledby="dropdownMenu1">
-                     <li><a class="text-right" href="#">Physicsa</a></li>
+               <ul class="tabbable collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav col-sm-4">
+                     <li ng-class="{active: main.activetab == 'pilots'}">
+                        <a class="nav-link" href="/#/pilots" data-target="#pilots" data-toggle="tab" role="tab" ng-click='main.activetab = "pilots"'>Pilots</a>
+                     </li>
+                     <li class="nav-item" ng-class="{active: main.activetab == 'packages'}">
+                        <a class="nav-link" data-toggle="tab" href="/#/packages" data-target="#packages" role="tab" ng-click='main.activetab = "packages"'>Packages</a>
+                     </li>
+                  </ul>
+                  {% comment %}Login/signup side of things start{% endcomment %}
+                  {% if user.is_authenticated %}
+                  <ul class="nav navbar-nav navbar-right">
+                     <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ user.username }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                           <li>
+                              <a class="text-right nav-link" href="#">Physicsa</a>
+                           </li>
+                           <li>
+                              <a class="text-right nav-link" href="accounts/logout/">Logout</a>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+                  {% else %}
+                  <ul class="nav navbar-nav navbar-right">
                      <li>
-                        <a class="text-right" href="accounts/logout/">Logout</a>
+                        <a href="/accounts/register/"><span class="glyphicon glyphicon-user"></span> SignUp</a>
+                     </li>
+                     <li>
+                        <a href="/accounts/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a>
                      </li>
                   </ul>
-                  </div>
-                </div>
-
-               {% else %}
-               <div>
-                  <ul class="nav tabbable navbar-nav pull-right">
-                     <li class="nav-item pull-right">
-                        <a href="/accounts/register/">SignUp</a>
-                     </li>
-                     <li class="nav-item pull-right">
-                        <a href="/accounts/login/">Login</a>
-                     </li>
-                  </ul>
-               </div>
-               {% endif %}
-               <!-- Tab panels -->
-               <div>
-
-                  </div>
-                  {% block login %}{% endblock %}
-                  {% block register %}{% endblock %}
-               </div>
+                  {% endif %}
+                  {% comment %}Login/signup side of things end{% endcomment %}
+               </ul>
             </div>
-         </div>
+         </nav>
+         <!-- Tab panels -->
+          <div class="container" align="left">
+         {% block login %}{% endblock %}
+         {% block register %}{% endblock %}
+          </div>
       </div>
-      <div class="container" ng-view="">
+
+      <div ng-view=""></div>
       <div class="footer">
          <div class="container">
             <p><span class="glyphicon glyphicon-heart"></span> from DroneGama</p>
          </div>
       </div>
-      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-      <script>
-         !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-         (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-         r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-         }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-         ga('create', 'UA-XXXXX-X');
-         ga('send', 'pageview');
-      </script>
       <!-- build:js(.) scripts/vendor.js -->
       <!-- bower:js -->
       <script src="static/bower_components/jquery/dist/jquery.js"></script>
