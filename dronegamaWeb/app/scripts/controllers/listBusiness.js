@@ -32,22 +32,22 @@ angular.module('dronegamaWebApp')
 
     })
   .controller('ListBusinessCtrl', function ($timeout, $scope, $state) {
-    if(!$scope.main.isAuthenticated) {
-      $('#notLoggedInModal').modal('show');
-    } else {
-        $('#listBusinessModalSteps').modal('show');
-        $state.go('list_business.form.profile');
-    }
+        if(!$scope.main.isAuthenticated) {
+          $('#notLoggedInModal').modal('show');
+        } else {
+            $('#listBusinessModalSteps').modal('show');
+            $state.go('list_business.form.profile');
+        }
         $scope.formData = {};
 
 
 
 
-    $scope.onFormSubmit = function () {
+      $scope.onFormSubmit = function () {
       $('#listBusinessModalSteps').modal('hide');
       $('body').removeClass('modal-open');
-$('.modal-backdrop').remove();
-    $state.go('edit_profile');
+      $('.modal-backdrop').remove();
+      $state.go('edit_profile');
 
     };
   })
