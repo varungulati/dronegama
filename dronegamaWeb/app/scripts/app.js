@@ -40,6 +40,10 @@ angular
         controller: 'ListBusinessCtrl',
         controllerAs: 'listBusiness'
       })
+      .state('edit_profile', {
+        url: '/edit_profile',
+        templateUrl: 'static/views/edit_profile.html'
+      })
 
     ;
 /*      .when('/about', {

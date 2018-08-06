@@ -38,5 +38,20 @@ angular.module('dronegamaWebApp')
         $('#listBusinessModalSteps').modal('show');
         $state.go('list_business.form.profile');
     }
-  });
+        $scope.formData = {};
+
+
+
+
+    $scope.onFormSubmit = function () {
+      $('#listBusinessModalSteps').modal('hide');
+      $('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+    $state.go('edit_profile');
+
+    };
+  })
+
+
+;
 

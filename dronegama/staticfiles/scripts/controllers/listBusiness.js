@@ -35,14 +35,8 @@ angular.module('dronegamaWebApp')
     if(!$scope.main.isAuthenticated) {
       $('#notLoggedInModal').modal('show');
     } else {
-      $('#listBusinessModalStart').modal('show');
-      $timeout(function() {
-        $('#listBusinessModalStart').modal('hide');
         $('#listBusinessModalSteps').modal('show');
         $state.go('list_business.form.profile');
-      }, 1000);
-
-
     }
   });
 
