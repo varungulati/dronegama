@@ -122,17 +122,17 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    # os.path.join(BASE_DIR, "dronegamaWeb/dist"),
+    os.path.join(BASE_DIR, "dronegamaWeb/dist"),
     os.path.join(BASE_DIR, "dronegamaWeb/app"),
-    os.path.join(BASE_DIR, "dronegamaWeb"),
+    os.path.join(BASE_DIR, "dronegamaWeb/static")
 ]
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
-APPEND_SLASH=False
-SITE_ID=1
+APPEND_SLASH = False
+SITE_ID = 1
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/#/'
+LOGOUT_REDIRECT_URL = '/#/'

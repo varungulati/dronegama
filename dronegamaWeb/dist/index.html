@@ -1,10 +1,106 @@
 <!doctype html>
-{% load staticfiles %} <html> <head> <meta charset="utf-8"> <title></title> <meta name="description" content=""> <meta name="viewport" content="width=device-width"> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel="stylesheet" href="styles/main.css"> </head> <body ng-app="dronegamaWebApp"> <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]--> <!-- Add your site or application content here --> <div class="header"> <div class="navbar navbar-default" role="navigation"> <div class="container"> <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="#/">ZIPARI</a> </div> <div class="collapse navbar-collapse" id="js-navbar-collapse"> <ul class="nav navbar-nav"> <li class="active"><a href="#/">Home</a></li> <li><a ng-href="#/about">About</a></li> <li><a ng-href="#/company">Company</a></li> </ul> </div> </div> </div> </div> <div class="container"> <div ng-view=""></div> </div> <div class="footer"> <div class="container"> <p><span class="glyphicon glyphicon-heart"></span> from the Dronegama DEV team</p> </div> </div> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID --> <script>!function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+{% load staticfiles %}
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width">
+      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');</script> <script src="scripts/vendor.7278a0a2.js"></script> <script src="scripts/scripts.1ec503d4.js"></script> </body> </html>
+      <link rel="stylesheet" href="styles/main.css">
+   </head>
+   <body ng-app="dronegamaWebApp"  ng-controller="dronegamaIndexController">
+      <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+      <!-- Add your site or application content here -->
+      <div class="header">
+         <nav class="navbar navbar-default">
+            <div class="container">
+               <div class="navbar-header col-sm-4">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+                  <a  ui-sref="main" data-target="#main">
+                  <img style="margin-top: 10px" src="{% static "images/dronegama.png" %}"  ng-click='main.activetab = "home"' width="200"></img>
+                  </a>
+               </div>
+               <ul class="tabbable collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav col-sm-4">
+                     <li ng-class="{active: main.activetab == 'pilots'}">
+                        <a class="nav-link" ui-sref="pilots" data-target="#pilots" data-toggle="tab" role="tab"
+                        ng-click='main.activetab = "pilots"'>Pilots</a>
+                     </li>
+                     <li class="nav-item" ng-class="{active: main.activetab == 'packages'}">
+                        <a class="nav-link" ui-sref="packages" data-toggle="tab" data-target="#packages" role="tab"
+                        ng-click='main.activetab = "packages"'>Packages</a>
+                     </li>
+                     <li class="nav-item" ng-class="{active: main.activetab == 'list_business'}">
+                        <a class="nav-link" ui-sref="list_business" data-toggle="tab" data-target="#list_business" role="tab"
+                        ng-click='main.activetab = "list_business"'>List My Business</a>
+                     </li>
+                  </ul>
+                  {% comment %}Login/signup side of things start{% endcomment %}
+                  {% if user.is_authenticated %}
+                  <ul class="nav navbar-nav navbar-right">
+                     <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ user.username }} <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                           <li>
+                              <a class="text-right nav-link" href="#">Physicsa</a>
+                           </li>
+                           <li>
+                              <a class="text-right nav-link" href="accounts/logout/">Logout</a>
+                           </li>
+                        </ul>
+                     </li>
+                  </ul>
+                  {% else %}
+                  <ul class="nav navbar-nav navbar-right">
+                     <li>
+                        <a href="/accounts/register/"><span class="glyphicon glyphicon-user"></span> SignUp</a>
+                     </li>
+                     <li>
+                        <a href="/accounts/login/"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                     </li>
+                  </ul>
+                  {% endif %}
+                  {% comment %}Login/signup side of things end{% endcomment %}
+               </ul>
+            </div>
+         </nav>
+         <!-- Tab panels -->
+          <div class="container" align="left">
+         {% block login %}{% endblock %}
+         {% block register %}{% endblock %}
+          </div>
+      </div>
+
+{% comment %}      <div ng-view=""></div>{% endcomment %}
+
+       <div ui-view></div>
+
+      <div class="footer">
+         <div class="container">
+            <p><span class="glyphicon glyphicon-heart"></span> from DroneGama</p>
+         </div>
+      </div>
+      <script src="scripts/vendor.aa8d8011.js"></script>
+      <script src="scripts/scripts.fa02de9e.js"></script>
+      <script>
+         angular.module('dronegamaWebApp')
+           .controller('dronegamaIndexController', function ($scope) {
+         		$scope.main = {};
+         		{% if user.is_authenticated %}
+         		$scope.main.isAuthenticated = true;
+         		{% else %}
+              $scope.main.isAuthenticated = false;
+         		{% endif %}
+		          $scope.main.activetab = 'main';
+           });
+      </script>
+   </body>
+</html>
