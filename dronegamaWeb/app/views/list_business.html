@@ -24,26 +24,11 @@
    </div>
    <div ng-if="main.isAuthenticated">
      <div ng-controller="ListBusinessCtrl">
-       <div class="modal fade" id="listBusinessModalStart">
-         <div class="modal-dialog" role="document">
-           <div class="modal-content">
-             <div class="modal-header">
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                 <h4 class="modal-title">Alright !</h4>
-              </div>
-             <div class="modal-body">
-                     <p>This will only take a minute.</p>
-             </div>
-           </div>
-         </div>
-       </div>
-
-
        <div class="modal fade" id="listBusinessModalSteps">
          <div class="modal-dialog" role="document">
            <div class="modal-content">
              <div class="modal-header">
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="redirect('/#/')"><span aria-hidden="true">×</span></button>
                  <h4 class="modal-title">Step 1/4</h4>
               </div>
              <div class="modal-body">

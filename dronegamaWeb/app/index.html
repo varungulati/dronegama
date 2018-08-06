@@ -15,6 +15,7 @@
       <!-- build:css(.tmp) styles/main.css -->
       <link rel="stylesheet" href="{% static 'styles/main.css' %}">
       <!-- endbuild -->
+     <base href="/"></base>
    </head>
    <body ng-app="dronegamaWebApp"  ng-controller="dronegamaIndexController">
       <!--[if lte IE 8]>
@@ -56,7 +57,7 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ user.username }} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                            <li>
-                              <a class="text-right nav-link" href="#">Physicsa</a>
+                              <a class="text-right nav-link" href="#">Account</a>
                            </li>
                            <li>
                               <a class="text-right nav-link" href="accounts/logout/">Logout</a>

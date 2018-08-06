@@ -10,11 +10,11 @@
 angular.module('dronegamaWebApp')
     .config(function ($stateProvider, $urlRouterProvider) {
       $stateProvider
-
       // route to show our basic form (/form)
         .state('list_business.form', {
           url: '/form',
-          templateUrl: 'static/views/form.html'
+          templateUrl: 'static/views/form.html',
+          controller: 'ListBusinessCtrl'
         })
 
         // nested states
@@ -26,12 +26,12 @@ angular.module('dronegamaWebApp')
         })
         .state('list_business.form.termsandconditions', {
           url: '/termsandconditions',
-          templateUrl: 'static/views/form-profile.html'
+          templateUrl: 'static/views/termsandconditions.html'
         })
       ;
-      $urlRouterProvider.otherwise('/list_business/form/profile');
+
     })
-  .controller('ListBusinessCtrl', function ($timeout, $scope) {
+  .controller('ListBusinessCtrl', function ($timeout, $scope, $state) {
     if(!$scope.main.isAuthenticated) {
       $('#notLoggedInModal').modal('show');
     } else {
@@ -39,6 +39,7 @@ angular.module('dronegamaWebApp')
       $timeout(function() {
         $('#listBusinessModalStart').modal('hide');
         $('#listBusinessModalSteps').modal('show');
+        $state.go('list_business.form.profile');
       }, 1000);
 
 
