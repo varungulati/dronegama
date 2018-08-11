@@ -111,7 +111,10 @@ angular
 
 // Making the navbar collapse after clicking on any one option in mobile mode
 $(document).ready(function () {
-  $(".navbar-nav li a.nav-link").click(function(event) {
+  $(".navbar-nav li a.nav-link.non-dropdown").click(function(event) {
+    $(".navbar-collapse").collapse('hide');
+  });
+  $(".navbar-nav li div.dropdown-menu").click(function(event) {
     $(".navbar-collapse").collapse('hide');
   });
 });
