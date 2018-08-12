@@ -99,3 +99,5 @@ static
 .tmp
 .sass-cache
 .idea/*
+dronegamaWeb/static/
+
