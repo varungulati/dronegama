@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'accounts',
     'company',
     'dronegamaWeb',
+    'listbusiness',
     'ticker',
     'rest_framework',
     'django.contrib.admin',
@@ -123,12 +124,12 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     #os.path.join(BASE_DIR, "dronegamaWeb/dist"),
-    os.path.join(BASE_DIR, "dronegamaWeb/static")
+    #os.path.join(BASE_DIR, "dronegamaWeb/static")
 ]
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
-    #'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 APPEND_SLASH = False
 SITE_ID = 1
