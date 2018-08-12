@@ -95,6 +95,7 @@ ENV/
 
 
 node_modules
+static
 .tmp
 .sass-cache
 .idea/*
