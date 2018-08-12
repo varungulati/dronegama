@@ -1,0 +1,52 @@
+<div class="container">
+   <div ng-if="!main.isAuthenticated">
+      <div ng-controller="ListBusinessCtrl">
+         <div class="modal fade" id="notLoggedInModal">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h4 class="modal-title">Oh ... what just happened !</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                  </div>
+                  <div class="modal-body">
+                     <p>You need to have an account. Please login to continue. It will take only two minutes.</p>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+               <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+         </div>
+         <!-- /.modal -->
+      </div>
+   </div>
+   <div ng-if="main.isAuthenticated">
+     <div ng-controller="ListBusinessCtrl">
+       <div class="modal fade" id="listBusinessModalSteps">
+         <div class="modal-dialog" role="document">
+           <div class="modal-content">
+             <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="redirect('/#/')"><span aria-hidden="true">×</span></button>
+              </div>
+             <div class="modal-body">
+
+
+<!-- views will be injected here -->
+
+              <div ui-view>
+
+              </div>
+
+
+
+             </div>
+           </div>
+         </div>
+       </div>
+
+
+     </div>
+   </div>
+</div>
