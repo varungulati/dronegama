@@ -22,7 +22,7 @@ module.exports = function (grunt) {
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
-    dist: 'dist'
+    dist: 'static'
   };
 
   // Define the configuration for all the tasks
@@ -229,7 +229,8 @@ module.exports = function (grunt) {
           '<%= yeoman.dist %>/scripts/{,*/}*.js',
           '<%= yeoman.dist %>/styles/{,*/}*.css',
           '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.dist %>/styles/fonts/*'
+          '<%= yeoman.dist %>/styles/fonts/*',
+          '<%= yeoman.dist %>/bower_components/bootstrap/dist/css/{,*/}*.css',
         ]
       }
     },
@@ -380,7 +381,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '*.html',
             'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*'
+            'styles/fonts/{,*/}*.*',
           ]
         }, {
           expand: true,
@@ -389,8 +390,13 @@ module.exports = function (grunt) {
           src: ['generated/*']
         }, {
           expand: true,
-          cwd: 'bower_components/bootstrap/dist',
-          src: 'fonts/*',
+          cwd: '<%= yeoman.app %>/',
+          dest: '<%= yeoman.dist %>/',
+          src: ['scripts/*/*.js']
+        }, {
+          expand: true,
+          cwd: '<%= yeoman.dist %>',
+          src: '/bower_components/bootstrap/dist/css/{,*/}*.*',
           dest: '<%= yeoman.dist %>'
         }]
       }

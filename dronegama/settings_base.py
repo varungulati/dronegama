@@ -122,7 +122,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "dronegamaWeb/dist"),
+    #os.path.join(BASE_DIR, "dronegamaWeb/dist"),
     os.path.join(BASE_DIR, "dronegamaWeb/app"),
     os.path.join(BASE_DIR, "dronegamaWeb/static")
 ]
