@@ -22,6 +22,7 @@ module.exports = function(config) {
       // bower:js
       'static/bower_components/jquery/dist/jquery.js',
       'static/bower_components/angular/angular.js',
+      'static/bower_components/popper.js/dist/umd/popper.js',
       'static/bower_components/bootstrap/dist/js/bootstrap.js',
       'static/bower_components/angular-animate/angular-animate.js',
       'static/bower_components/angular-aria/angular-aria.js',
