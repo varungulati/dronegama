@@ -11,6 +11,15 @@ def listbusiness(request):
     Saves user business details in database
     """
     if request.method == 'GET':
+        return Response('{a:Aa}')
+
+# Create your views here.
+@api_view(['POST'])
+def listbusiness(request):
+    """
+    Saves user business details in database
+    """
+    if request.method == 'POST':
         # url = 'https://bittrex.com/api/v1.1/public/getmarketsummaries'
         # data = json.load(urllib.urlopen(url))
         # Ticker.objects.update(latest_in = False)
@@ -19,5 +28,4 @@ def listbusiness(request):
         #     obj.save()
         # companies = Ticker.objects.filter(latest_in = True)
         # serializer = TickerSerializer(companies, many=True)
-        return Response('{a:Aa}')
-
+        return Response('{a:ba}')
