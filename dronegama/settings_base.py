@@ -136,3 +136,5 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/#/'
 LOGOUT_REDIRECT_URL = '/#/'
+
+ALLOWED_HOSTS = ['djangoticker-staging.herokuapp.com', 'djangoticker.herokuapp.com']
