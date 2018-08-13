@@ -4,8 +4,9 @@ import urllib
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+
 # Create your views here.
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def listbusiness(request):
     """
     Saves user business details in database
@@ -13,12 +14,6 @@ def listbusiness(request):
     if request.method == 'GET':
         return Response('{a:Aa}')
 
-# Create your views here.
-@api_view(['POST'])
-def listbusiness(request):
-    """
-    Saves user business details in database
-    """
     if request.method == 'POST':
         # url = 'https://bittrex.com/api/v1.1/public/getmarketsummaries'
         # data = json.load(urllib.urlopen(url))
