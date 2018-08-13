@@ -4,6 +4,8 @@ import urllib
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from .models import Business
+
 
 # Create your views here.
 @api_view(['GET', 'POST'])
@@ -15,12 +17,5 @@ def listbusiness(request):
         return Response('{a:Aa}')
 
     if request.method == 'POST':
-        # url = 'https://bittrex.com/api/v1.1/public/getmarketsummaries'
-        # data = json.load(urllib.urlopen(url))
-        # Ticker.objects.update(latest_in = False)
-        # for values in data['result']:
-        #     obj = Ticker(symbol = values['MarketName'], price = values['Last'])
-        #     obj.save()
-        # companies = Ticker.objects.filter(latest_in = True)
-        # serializer = TickerSerializer(companies, many=True)
+        Business(business_name=request.POST.get('business_name', '')).save()
         return Response('{a:ba}')

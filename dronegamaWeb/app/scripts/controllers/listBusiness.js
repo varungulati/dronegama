@@ -31,7 +31,7 @@ angular.module('dronegamaWebApp')
       ;
 
     })
-  .controller('ListBusinessCtrl', function ($timeout, $scope, $state) {
+  .controller('ListBusinessCtrl', function ($timeout, $scope, $state, $http) {
         if(!$scope.main.isAuthenticated) {
           $('#notLoggedInModal').modal('show');
         } else {
@@ -44,11 +44,36 @@ angular.module('dronegamaWebApp')
 
 
       $scope.onFormSubmit = function () {
-      $('#listBusinessModalSteps').modal('hide');
-      $('body').removeClass('modal-open');
-      $('.modal-backdrop').remove();
-      $state.go('edit_profile');
+        $('#listBusinessModalSteps').modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $state.go('edit_profile');
+        console.log($scope.formData);
+        // var data = $param({
+        //     fName: $scope.firstName,
+        //     lName: $scope.lastName
+        // });
+        // var config = {
+        //     headers : {
+        //         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+        //     }
+        // }
 
+            $http({
+                  url: '/listbusiness/',
+                  method: "POST",
+                  data: $.param({business_name: $scope.formData.business_name}),
+                  headers: {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}
+              })
+              .then(function(response) {
+                      // success
+                console.log(response);
+                  },
+                  function(response) { // optional
+                      // failed
+                    console.log(response);
+                  }
+              );
     };
   })
 
